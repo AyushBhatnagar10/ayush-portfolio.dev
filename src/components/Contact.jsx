@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin } from 'lucide-react';
+import Swal from 'sweetalert2';
+import { track } from '@vercel/analytics';
 
 const Contact = ({ theme }) => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -7,8 +9,9 @@ const Contact = ({ theme }) => {
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = e => { 
     e.preventDefault(); 
-    alert('Thanks! Message sent successfully!'); 
+    Swal.fire('Thanks!', 'Message sent.', 'success');
     setForm({ name: '', email: '', message: '' });
+    track('contact_form_submit');
   };
   
   return (

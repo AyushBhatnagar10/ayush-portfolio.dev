@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
+import { Analytics } from  '@vercel/analytics/react';
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
@@ -124,10 +125,11 @@ const App = () => {
             ? 'bg-white/5 backdrop-blur-lg border-t border-white/10'
             : 'bg-white/30 backdrop-blur-lg border-t border-gray-200'
         }`}>
-          <p>© {new Date().getFullYear()} Bhattu. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ayush Bhatnagar. All rights reserved.</p>
           <p className="text-sm mt-2">Built with ❤️ using React & Tailwind CSS</p>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 };
